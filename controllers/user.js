@@ -190,7 +190,7 @@ export const createCashOrder = async (req, res) => {
       payment_method_types: ["cash"],
     },
     orderdBy: userAfterCreditsUpdate._id,
-    orderStatus: "Cash Ordery",
+    orderStatus: "Cash Order",
   }).save();
 
   // decrement quantity, increment sold
