@@ -150,7 +150,7 @@ export const removeFromWishlist = async (req, res) => {
 
 export const createCashOrder = async (req, res) => {
   const { COD, couponApplied } = req.body;
-  // if COD is true, create order with status of Cash On Delivery
+  // if COD is true, create order with status of Cash Order
 
   if (!COD) return res.status(400).send("Create cash order failed");
 
@@ -169,7 +169,7 @@ export const createCashOrder = async (req, res) => {
   if (user.credits < finalAmount) {
     console.log(`userCredits ${user.credits} finalAmount ${finalAmount}`)
     console.log(user.credits - finalAmount)
-    // res.status(400).send("Order failed - User dont have enough credits");
+    res.status(400).send("Order failed - User dont have enough credits");
       console.log('not enough credits')
   } else {
     const userCreditsAfterOrder = user.credits - finalAmount
